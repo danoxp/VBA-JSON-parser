@@ -40,7 +40,7 @@ Function jsonParser()
     Static json As Object
     If json Is Nothing Then
         Set document = CreateObject("htmlfile")
-        document.Write "<meta http-equiv=""x-ua-compatible"" content=""IE=9"" />'"
+        document.Write "<meta http-equiv=""x-ua-compatible"" content=""IE=11"" />'"
         document.parentWindow.execScript Replace( _
             "`object`!=typeof JSON&&(JSON={}),function(){`use strict`;function f(t){return 10>t?`0`+t:t}function this_value(){return this.valueOf()}function quote(t){return rx_escapable.lastIndex=" & _
             "0,rx_escapable.test(t)?'`'+t.replace(rx_escapable,function(t){var e=meta[t];return`string`==typeof e?e:`\\u`+(`0000`+t.charCodeAt(0).toString(16)).slice(-4)})+'`':'`'+t+'`'}function str(t,e){var r,n,o,u,f,a=gap,i=e[t];switch(i&&`object`==typeof i&&`f" & _
