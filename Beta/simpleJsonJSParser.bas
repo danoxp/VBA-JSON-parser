@@ -86,13 +86,13 @@ Private Sub repack(source, result)
             For i = 0 To UBound(result)
                 Dim ret
                 repack result(i), ret
-                assign ret, result(i)
+                If IsObject(result(i)) Then Set ret = result(i) Else ret = result(i)
             Next
         Case "object"
             Set result = jsonParser.cloneDict(source, CreateObject("Scripting.Dictionary"))
             For Each i In result
                 repack result(i), ret
-                assign ret, result(i)
+                If IsObject(result(i)) Then Set ret = result(i) Else ret = result(i)
             Next
         Case "string"
             result = CStr(source)
@@ -104,13 +104,3 @@ Private Sub repack(source, result)
             result = Null
     End Select
 End Sub
-
-Sub assign(src, dest)
-    If IsObject(src) Then
-        Set dest = src
-    Else
-        dest = src
-    End If
-End Sub
-
-
